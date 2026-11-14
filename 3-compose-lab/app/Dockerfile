@@ -1,5 +1,5 @@
 # 1. Base image
-FROM node:20-alpine
+FROM node:22-alpine
 
 # 2. Sets the execution path inside the container
 WORKDIR /usr/src/app

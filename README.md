@@ -15,12 +15,13 @@ Notes from my own learning path. Not perfect, but hopefully useful. Issues and P
 | 3 | [`3-compose-lab`](3-compose-lab/) | Multi-container setup with Docker Compose and `.env` | `docker compose up -d` |
 | 4 | [`4-sec-lab`](4-sec-lab/) | Non-root user, MongoDB auth, least-privilege DB user | `docker compose up -d` |
 
-Suggested order: 1 → 2 → 3 → 4. Each lab folder has its own README.
+Suggested order: 1 → 2 → 3 → 4. Each lab folder has its own README, with steps to
+**verify it works** and an **if something goes wrong** section.
 
 ## Prerequisites
 
 - [Docker](https://docs.docker.com/get-docker/) (with the Compose plugin)
-- `make` (lab 2 only)
+- `make` (lab 2 only; on Windows use WSL or Git Bash)
 - A Docker Hub account (lab 2 only, if you want to push)
 
 Quick check:
@@ -40,6 +41,9 @@ docker compose version
   [`4-sec-lab/.env`](4-sec-lab/.env) before running.
 - **Credentials here are for local learning only.** Don't reuse them anywhere real.
 - Every lab contains its own copy of the `app/` folder, so each one works on its own.
+- **Windows:** labs 3 and 4 (Compose) work as they are. The commands in lab 1 use bash
+  line breaks (`\`), so use Git Bash or WSL, or put each command on one line.
+- **Nothing works at all?** Make sure Docker Desktop (or the Docker service) is running.
 
 ## Repo structure
 
