@@ -52,4 +52,4 @@ To verify that the cleanup step completely cleared all resources, run:
 ```bash
   docker ps -a && docker image ls && docker volume ls && docker network ls
 ```
-No the docker-lab-* containers, images, volumes, or networks should output.
+No docker-lab-* containers, images, volumes, or networks should output.

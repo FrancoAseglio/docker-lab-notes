@@ -5,10 +5,10 @@ FROM node:20-alpine
 WORKDIR /usr/src/app
 
 # 3. Layer Caching optimization: Copy package manifests first
-COPY package.json ./
+COPY package.json package-lock.json ./
 
 # 4. Dependency installation
-RUN npm install --production
+RUN npm ci --omit=dev
 
 # 5. Application deployment: Copy the rest of the application source code
 COPY . .

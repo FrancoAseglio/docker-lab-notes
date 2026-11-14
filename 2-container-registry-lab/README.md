@@ -74,5 +74,6 @@ make clean
 ```
 
 `make clean` removes local containers, images, volumes, and the network.
-It does **not** delete the remote Docker Hub repository  
-remove `francoaseglio/docker-lab-app` manually via hub.docker.com if needed.
+It does **not** delete the remote Docker Hub repository.
+If you pushed an image, remove it manually via hub.docker.com
+(for example `francoaseglio/docker-lab-app`, or your own username).
