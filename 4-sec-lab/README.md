@@ -1,4 +1,4 @@
-# Docker Lab: security-hardened Node.js & MongoDB
+# 🔒 Lab 4: security-hardened Node.js & MongoDB
 
 This lab keeps the same Node.js, MongoDB, Mongo Express, and Compose structure as
 the previous labs, while demonstrating practical container security defaults.
@@ -10,8 +10,8 @@ the previous labs, while demonstrating practical container security defaults.
   only the `readWrite` role on `testdb`.
 - The MongoDB root account is used only for administration and is not passed to
   the application.
-- MongoDB authentication is enabled, and the database admin UI uses basic
-	authentication.
+- The database admin UI (Mongo Express) is protected with basic authentication.
+- MongoDB is published only on `127.0.0.1`, so it is not reachable from other machines.
 
 ## 🛠️ Project Structure
 
@@ -26,7 +26,7 @@ the previous labs, while demonstrating practical container security defaults.
 │    │     └── Item.js
 │    ├── public/             # Frontend Assets
 │    │     ├── index.html
-│    │     ├── script.js
+│    │     ├── scripts.js
 │    │     └── style.css
 │    ├── routes/             # API routing
 │    │     └── itemRoutes.js
@@ -37,6 +37,10 @@ the previous labs, while demonstrating practical container security defaults.
 ├── .env                     # Env file used by docker-compose
 └── docker-compose.yaml      # Multi-container orchestration specification
 ```
+
+## ⚙️ Before you start
+
+Edit [`.env`](.env) and replace the `change-me-*` passwords with your own.
 
 ## 🚀 Running the Lab
 
@@ -55,8 +59,3 @@ docker compose down --volumes --rmi all --remove-orphans
 ```
 
 > WARNING: `--volumes` deletes the MongoDB data stored in the `mongo-data` volume.
-
----
-
-> NOTE: _https://www.composerize.com_
-Use the link above to convert docker CLI commands into docker-compose.yaml .

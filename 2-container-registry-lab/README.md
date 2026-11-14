@@ -1,4 +1,4 @@
-# 📦 Docker Lab: container registry workflow
+# 📦 Lab 2: container registry workflow
 
 A lightweight, full-stack local environment built with **Docker commands and a Makefile**.
 This lab features:
@@ -41,7 +41,8 @@ Build the application image:
 make docker-build
 ```
 
-Tag and push the image to Docker Hub:
+Tag and push the image to Docker Hub (first change `DOCKER_USER` in the `Makefile` to your own
+username and run `docker login`):
 
 ```bash
 make docker-push

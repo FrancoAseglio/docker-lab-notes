@@ -5,7 +5,7 @@ const itemRoutes = require('./routes/itemRoutes');
 const { swaggerUi, swaggerDocs } = require('./config/swagger');
 
 const app  = express();
-const PORT = process.env.MONGO_PORT_INTERNAL || 3000;
+const PORT = process.env.APP_PORT_INTERNAL || 3000;
 
 app.use(express.json());
 app.use(morgan('dev'));

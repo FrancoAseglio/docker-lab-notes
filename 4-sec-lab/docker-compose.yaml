@@ -36,7 +36,7 @@ services:
       MONGO_APP_USERNAME: ${MONGO_APP_USERNAME}
       MONGO_APP_PASSWORD: ${MONGO_APP_PASSWORD}
     ports:
-      - "${MONGO_PORT_EXTERNAL}:27017"
+      - "127.0.0.1:${MONGO_PORT_EXTERNAL}:27017"
     volumes:
       - mongo-data:/data/db
       - ./app/config/mongo-init.js:/docker-entrypoint-initdb.d/01-create-app-user.js:ro

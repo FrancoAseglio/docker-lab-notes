@@ -1,4 +1,4 @@
-# 📦 Docker Lab: basic Node.js & MongoDB interaction
+# 📦 Lab 3: Docker Compose
 
 A lightweight, full-stack local environment built with **Docker Compose**.
 This lab features:
@@ -18,7 +18,7 @@ This lab features:
 │    │     └── Item.js
 │    ├── public/             # Frontend Assets
 │    │     ├── index.html
-│    │     ├── script.js
+│    │     ├── scripts.js
 │    │     └── style.css
 │    ├── routes/             # API routing
 │    │     └── itemRoutes.js
@@ -29,6 +29,8 @@ This lab features:
 ├── .env                     # Env file used by docker-compose
 └── docker-compose.yaml      # Multi-container orchestration specification
 ```
+
+The `.env` file only holds local demo values, so it is safe to commit here.
 
 ## 🚀 Running the Lab
 
