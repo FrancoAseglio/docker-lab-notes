@@ -1,0 +1,49 @@
+volumes:
+  mongo-data:
+
+networks:
+  docker-lab-network:
+    driver: bridge
+
+services:
+  app:
+    build:
+      context: ./app
+      dockerfile: Dockerfile
+    container_name: docker-lab-app
+    ports:
+      - "${APP_PORT_EXTERNAL}:${APP_PORT_INTERNAL}"
+    environment:
+      MONGO_HOST: ${MONGO_HOST}
+      MONGO_PORT: ${MONGO_PORT_INTERNAL}
+      MONGO_DB: ${MONGO_DB}
+    depends_on:
+      - mongodb
+    networks:
+      - docker-lab-network
+
+  mongodb:
+    image: mongo:7
+    container_name: docker-lab-mongo
+    ports:
+      - "${MONGO_PORT_EXTERNAL}:${MONGO_PORT_INTERNAL}"
+    volumes:
+      - mongo-data:/data/db
+    networks:
+      - docker-lab-network
+
+  mongo-express:
+    image: mongo-express:1.0
+    container_name: docker-lab-mongo-express
+    restart: always
+    ports:
+      - "${MONGO_EXPRESS_PORT_EXTERNAL}:${MONGO_EXPRESS_PORT_INTERNAL}"
+    environment:
+      ME_CONFIG_MONGODB_SERVER: ${ME_CONFIG_MONGODB_SERVER}
+      ME_CONFIG_MONGODB_PORT: ${ME_CONFIG_MONGODB_PORT}
+      ME_CONFIG_BASICAUTH_USERNAME: ${ME_CONFIG_BASICAUTH_USERNAME}
+      ME_CONFIG_BASICAUTH_PASSWORD: ${ME_CONFIG_BASICAUTH_PASSWORD}
+    depends_on:
+      - mongodb
+    networks:
+      - docker-lab-network
